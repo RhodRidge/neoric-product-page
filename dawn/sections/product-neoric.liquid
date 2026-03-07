@@ -1,0 +1,31 @@
+<section class="product-page-container">
+  <div class="product-grid">
+
+    <div class="product-gallery"></div>
+
+    <div class="product-info">
+      <h1 class="product-title">{{ product.title }}</h1>
+      <p class="product-subtitle">Apple Watch Armband</p>
+
+      <div class="price-wrapper">
+        <span class="compare-at-price">{{ product.compare_at_price | money }}</span>
+        <span class="current-price">{{ product.price | money }}</span>
+        <span class="tax-info">inkl. MwSt.</span>
+      </div>
+
+      <div class="stock-status">
+        <span class="dot"></span>
+        Auf Lager, in 2-3 Tagen bei dir
+      </div>
+
+      {% form 'product'
+        , product %}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="add-to-cart-btn">In den Einkaufswagen</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
