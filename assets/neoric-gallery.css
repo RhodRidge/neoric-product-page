@@ -1,0 +1,104 @@
+.neoric-gallery {
+    display: flex;
+    align-items: center;
+}
+
+.neoric-gallery__thumbs {
+    display: flex;
+    margin-right: 12px;
+    flex-direction: column;
+    max-height: 480px;
+    gap: 12px;
+}
+
+.neoric-gallery__thumb {
+    background: none;
+    border: none;
+}
+
+.neoric-gallery__thumb img {
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.neoric-gallery__main {
+    display: flex;
+    align-items: center;
+}
+
+.neoric-gallery__main img {
+    width: 100%;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.neoric-gallery__slide {
+    display: none;
+}
+
+.neoric-gallery__slide.is-active {
+    display: flex;
+    width: 480px
+}
+
+.neoric-gallery__dots {
+    display: none;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d3d3d3;
+}
+
+.dot.active {
+    background: #555;
+}
+
+@media (max-width: 900px) {
+    .neoric-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .neoric-gallery__thumbs {
+        display: none;
+    }
+
+    .neoric-gallery__dots{
+        display: flex;
+    }
+
+    .neoric-gallery__main{
+        display:flex;
+        flex-direction: column;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 0 40px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .neoric-gallery__main::-webkit-scrollbar {
+        width: 350px
+    }
+
+    .neoric-gallery__slide.is-active {
+        display: block;
+    }
+
+    .neoric-gallery__slide {
+        scroll-snap-align: center;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .neoric-gallery__slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}

@@ -1,0 +1,50 @@
+{{ 'neoric-info-card.css' | asset_url | stylesheet_tag }}
+
+<div class="neoric-info-card">
+
+  <h1 class="neoric-info-card__title">
+    {{ product.title }}
+  </h1>
+
+  <p class="neoric-info-card__subtitle">
+    Apple Watch Armband
+  </p>
+
+  <div class="neoric-info-card__price">
+
+    {% if product.compare_at_price > product.price %}
+      <span class="neoric-info-card__price-old">
+        {{ product.compare_at_price | money_without_currency  }}€
+      </span>
+    {% endif %}
+
+    <div>
+      <span class="neoric-info-card__price-new">
+        {{ product.price | money_without_currency  }}€
+      </span>
+
+      <span class="neoric-info-card__tax">
+        inkl. MwSt.
+      </span>
+  </div>
+
+  </div>
+
+  <div class="neoric-info-card__stock">
+    <span class="neoric-info-card__dot"></span>
+    Auf Lager, in 2-3 Tagen bei dir
+  </div>
+
+  <form method="post" action={{ routes.cart_add_url }}>
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+    >
+
+    <button type="submit" class="neoric-button">
+      In den Einkaufswagen
+    </button>
+  </form>
+
+</div>

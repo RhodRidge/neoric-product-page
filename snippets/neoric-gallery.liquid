@@ -1,0 +1,83 @@
+{{ 'neoric-gallery.css' | asset_url | stylesheet_tag }}
+
+<div class="neoric-gallery">
+    <div class="neoric-gallery__thumbs">
+        {% for media in product.media %}
+            <button 
+                class="neoric-gallery__thumb" 
+                data-index="{{ forloop.index0 }}"
+            >
+            <img
+                src="{{ media.preview_image | image_url: width: 100 }}"
+                width="100"
+                alt="{{ media.alt | escape }}"
+                loading="lazy"
+                decoding="async"
+            >
+            </button>
+        {% endfor %}
+    </div>
+
+    <div class="neoric-gallery__main">
+        {% for media in product.media %}
+            <div class="neoric-gallery__slide {% if forloop.first %}is-active{% endif %}">
+                <img
+                    src="{{ media.preview_image | image_url: width: 900 }}"
+                    width="480"
+                    height="auto"
+                    alt="{{ media.alt | escape }}"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </div>
+        {% endfor %}
+
+        <div class="neoric-gallery__dots">
+            {% for media in product.media %}
+                <span class="dot"></span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const thumbs = document.querySelectorAll(".neoric-gallery__thumb");
+        const slides = document.querySelectorAll(".neoric-gallery__slide");
+
+        function updateGallery(activeIndex) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("is-active", i === activeIndex);
+            });
+
+            thumbs.forEach((thumb, i) => {
+                thumb.style.display = i === activeIndex ? "none" : "inline-block";
+            });
+        }
+
+        thumbs.forEach((thumb, index) => {
+            thumb.addEventListener("click", () => {
+                updateGallery(index);
+            });
+        });
+        updateGallery(0);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.querySelector(".neoric-gallery__main");
+        const slides = document.querySelectorAll(".neoric-gallery__slide");
+        const dots = document.querySelectorAll(".dot");
+
+        function updateDots(){
+            const slideWidth = slides[0].offsetWidth + 16;
+            const index = Math.round(gallery.scrollLeft / slideWidth);
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        }
+
+        gallery.addEventListener("scroll", updateDots);
+        updateDots();
+    });
+</script>

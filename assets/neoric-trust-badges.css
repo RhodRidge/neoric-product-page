@@ -1,0 +1,57 @@
+.neoric-product__badges {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.neoric-trust-badges {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.neoric-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.neoric-trust-badge img {
+    width: 57px;
+}
+
+.neoric-trust-badge__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.neoric-trust-badge__title, 
+.neoric-trust-badge__desc {
+    margin: 0;
+    padding: 0;
+}
+
+.neoric-trust-badge__title {
+    font: 500 18px/22px Montserrat;
+    margin-bottom: 6px;
+    letter-spacing: 0px;
+    color: #000000
+}
+
+.neoric-trust-badge__desc {
+    font: normal normal normal 18px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #383838;
+}
+
+@media (max-width: 900px) {
+    .neoric-trust-badges {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .neoric-trust-badge img {
+        width: 48px;
+    }
+}

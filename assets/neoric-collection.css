@@ -1,0 +1,27 @@
+.neoric-product {
+    padding: 60px 20px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.neoric-product__container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.neoric-product__grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .neoric-product__grid {
+        grid-template-columns: 1fr;
+    }
+}
+  
