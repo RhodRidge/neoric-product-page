@@ -1,0 +1,263 @@
+{% assign product = all_products['neoric-neon'] %}
+<section class="neoric-product"> 
+    <div class="neoric-product__container">
+        <div class="neoric-product__gallery">
+            {% render 'neoric-gallery', product: product %}
+        </div>
+        <div class="neoric-product__info">
+            {% render 'neoric-info-card',
+                product: product,
+                subtitle: section.settings.subtitle,
+                stock_text: section.settings.stock_text,
+                button_text: section.settings.button_text
+            %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+	{
+		"name": "Neoric Produkt-Card",
+		"settings": [
+			{
+			"type": "color",
+			"id": "title_color",
+			"label": "Titel Farbe",
+			"default": "#000000"
+			},
+			{
+			"type": "text",
+			"id": "title_font_family",
+			"label": "Titel Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "title_font_weight",
+			"label": "Titel Font Weight",
+			"default": "600",
+			"options": [
+				{"value": "400", "label": "Regular"},
+				{"value": "500", "label": "Medium"},
+				{"value": "600", "label": "Semi-Bold"},
+				{"value": "700", "label": "Bold"}
+			]
+			},
+			{
+			"type": "number",
+			"id": "title_font_size_desktop",
+			"label": "Titel Größe Desktop",
+			"default": 25
+			},
+			{
+			"type": "number",
+			"id": "title_font_size_mobile",
+			"label": "Titel Größe Mobile",
+			"default": 20
+			},
+
+			{
+			"type": "color",
+			"id": "subtitle_color",
+			"label": "Subtitle Farbe",
+			"default": "#000000"
+			},
+			{
+			"type": "text",
+			"id": "subtitle_font_family",
+			"label": "Subtitle Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "subtitle_font_weight",
+			"label": "Subtitle Font Weight",
+			"default": "500",
+			"options": [
+				{"value": "400", "label": "Regular"},
+				{"value": "500", "label": "Medium"},
+				{"value": "600", "label": "Semi-Bold"},
+				{"value": "700", "label": "Bold"}
+			]
+			},
+			{
+			"type": "number",
+			"id": "subtitle_font_size_desktop",
+			"label": "Subtitle Größe Desktop",
+			"default": 18
+			},
+			{
+			"type": "number",
+			"id": "subtitle_font_size_mobile",
+			"label": "Subtitle Größe Mobile",
+			"default": 16
+			},
+
+			{
+			"type": "color",
+			"id": "price_old_color",
+			"label": "Alter Preis Farbe",
+			"default": "#000000"
+			},
+			{
+			"type": "text",
+			"id": "price_old_font_family",
+			"label": "Alter Preis Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "price_old_font_weight",
+			"label": "Alter Preis Font Weight",
+			"default": "600",
+			"options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semi-Bold"},{"value":"700","label":"Bold"}]
+			},
+			{
+			"type": "number",
+			"id": "price_old_font_size_desktop",
+			"label": "Alter Preis Größe Desktop",
+			"default": 18
+			},
+			{
+			"type": "number",
+			"id": "price_old_font_size_mobile",
+			"label": "Alter Preis Größe Mobile",
+			"default": 16
+			},
+
+			{
+			"type": "color",
+			"id": "price_new_color",
+			"label": "Neuer Preis Farbe",
+			"default": "#1F47FF"
+			},
+			{
+			"type": "text",
+			"id": "price_new_font_family",
+			"label": "Neuer Preis Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "price_new_font_weight",
+			"label": "Neuer Preis Font Weight",
+			"default": "600",
+			"options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semi-Bold"},{"value":"700","label":"Bold"}]
+			},
+			{
+			"type": "number",
+			"id": "price_new_font_size_desktop",
+			"label": "Neuer Preis Größe Desktop",
+			"default": 18
+			},
+			{
+			"type": "number",
+			"id": "price_new_font_size_mobile",
+			"label": "Neuer Preis Größe Mobile",
+			"default": 16
+			},
+
+			{
+			"type": "color",
+			"id": "tax_color",
+			"label": "Mehrwertsteuer Farbe",
+			"default": "#000000"
+			},
+			{
+			"type": "text",
+			"id": "tax_font_family",
+			"label": "Mehrwertsteuer Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "tax_font_weight",
+			"label": "Mehrwertsteuer Font Weight",
+			"default": "400",
+			"options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semi-Bold"},{"value":"700","label":"Bold"}]
+			},
+			{
+			"type": "number",
+			"id": "tax_font_size_desktop",
+			"label": "Mehrwertsteuer Größe Desktop",
+			"default": 10
+			},
+			{
+			"type": "number",
+			"id": "tax_font_size_mobile",
+			"label": "Mehrwertsteuer Größe Mobile",
+			"default": 9
+			},
+
+			{
+			"type": "color",
+			"id": "stock_color",
+			"label": "Auf Lager Farbe",
+			"default": "#25A525"
+			},
+			{
+			"type": "text",
+			"id": "stock_font_family",
+			"label": "Auf Lager Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "stock_font_weight",
+			"label": "Auf Lager Font Weight",
+			"default": "500",
+			"options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semi-Bold"},{"value":"700","label":"Bold"}]
+			},
+			{
+			"type": "number",
+			"id": "stock_font_size_desktop",
+			"label": "Auf Lager Größe Desktop",
+			"default": 15
+			},
+			{
+			"type": "number",
+			"id": "stock_font_size_mobile",
+			"label": "Auf Lager Größe Mobile",
+			"default": 14
+			},
+
+			{
+			"type": "color",
+			"id": "button_bg",
+			"label": "Button Hintergrundfarbe",
+			"default": "#1F47FF"
+			},
+			{
+			"type": "color",
+			"id": "button_color",
+			"label": "Button Schriftfarbe",
+			"default": "#FFFFFF"
+			},
+			{
+			"type": "text",
+			"id": "button_font_family",
+			"label": "Button Schriftart",
+			"default": "Montserrat, sans-serif"
+			},
+			{
+			"type": "select",
+			"id": "button_font_weight",
+			"label": "Button Font Weight",
+			"default": "600",
+			"options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semi-Bold"},{"value":"700","label":"Bold"}]
+			},
+			{
+			"type": "number",
+			"id": "button_font_size_desktop",
+			"label": "Button Schriftgröße Desktop",
+			"default": 18
+			},
+			{
+			"type": "number",
+			"id": "button_font_size_mobile",
+			"label": "Button Schriftgröße Mobile",
+			"default": 16
+			}
+		]
+	}
+{% endschema %}

@@ -1,18 +1,28 @@
 <!doctype html>
-<html>
+<html lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {{ content_for_header }} {% comment %} Pflicht für Shopify-Apps/Admin {% endcomment %}
-    
-    {% comment %} NUR DEINE ASSETS LADEN {% endcomment %}
-    {{ 'c-product-styles.css' | asset_url | stylesheet_tag }}
+
+    {{ content_for_header }}
+
+    {{ 'all.css' | asset_url | stylesheet_tag }}
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    {{ 'neoric-gallery.css' | asset_url | stylesheet_tag }}
+    {{ 'neoric-info-card.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'neoric-gallery.js' | asset_url }}" defer></script>
+
   </head>
   <body>
-    <main role="main">
-      {{ content_for_layout }} {% comment %} Lädt deine Section {% endcomment %}
+    {% section 'header' %}
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+      {% section 'neoric-product' %}
     </main>
-    
-    <script src="{{ 'c-product-logic.js' | asset_url }}" defer></script>
+
+    {% section 'footer' %}
   </body>
 </html>

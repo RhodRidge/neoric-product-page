@@ -1,26 +1,59 @@
 .neoric-info-card {
     background: #fff;
-    width: 450px;
-    padding: 28px;
+    width: 420px;
+    padding: 30px;
     box-shadow: 0px 3px 20px #00000029;
     border: 1px solid #D5D5D5;
     border-radius: 5px;
+
+    /* Theme-Variablen mit Standardwerten exakt wie vorher */
+    --title-color: #000000;
+    --title-font-size: 25px;
+    --title-font-family: Montserrat, sans-serif;
+    --title-font-weight: 600;
+
+    --subtitle-color: #000000;
+    --subtitle-font-size: 18px;
+    --subtitle-font-family: Montserrat, sans-serif;
+    --subtitle-font-weight: 500;
+
+    --price-old-color: #000000;
+    --price-old-font-size: 18px;
+    --price-old-font-family: Montserrat, sans-serif;
+    --price-old-font-weight: 600;
+
+    --price-new-color: #1F47FF;
+    --price-new-font-size: 18px;
+    --price-new-font-family: Montserrat, sans-serif;
+    --price-new-font-weight: 600;
+
+    --tax-color: #000000;
+    --tax-font-size: 10px;
+    --tax-font-family: Montserrat, sans-serif;
+    --tax-font-weight: 400;
+
+    --stock-color: #25A525;
+    --stock-font-size: 15px;
+    --stock-font-family: Montserrat, sans-serif;
+    --stock-font-weight: 500;
+
+    --button-bg: #1F47FF;
+    --button-color: #FFFFFF;
+    --button-font-size: 18px;
+    --button-font-family: Montserrat, sans-serif;
+    --button-font-weight: 600;
 }
 
 .neoric-info-card__title {
-    text-align: left;
-    font: 600 25px/30px Montserrat, sans-serif;    
-    letter-spacing: 0px;
-    color: #000000;
+    font: 600 var(--title-font-size, 25px)/30px Montserrat, sans-serif;
+    color: var(--title-color, #000000);
     margin-top: 0;
     margin-bottom: 12px;
 }
 
 .neoric-info-card__subtitle {
-    text-align: left;
-    font: 500 18px/22px Montserrat, sans-serif;
-    letter-spacing: 0px;
-    color: #000000;
+    font: 500 var(--subtitle-font-size, 18px)/22px Montserrat, sans-serif;
+    color: var(--subtitle-color, #000000);
     margin-bottom: 20px;
 }
 
@@ -40,10 +73,8 @@
 }
 
 .neoric-info-card__price-new {
-    text-align: left;
+    color: var(--price-color, #1F47FF);
     font: 600 18px/22px Montserrat, sans-serif;
-    letter-spacing: 0px;
-    color: #1F47FF;
 }
 
 .neoric-info-card__tax {
@@ -67,19 +98,59 @@
     display: block;
     width: 15px;
     height: 15px;
-    background: #25A525;
+    background: var(--stock-dot-color, var(--stock-color));
     margin-right: 10px;
     border-radius: 50%;
 }
 
 .neoric-button {
     width: 100%;
-    background: #1F47FF ;
+    background: var(--button-bg, #1F47FF);
     color: white;
-    border: none;
     padding: 15px;
-    border-radius: 3px;
     cursor: pointer;
+    border-radius: 3px;
+    border: none;
     font: 600 18px/22px Montserrat;
-    letter-spacing: 0px;
+}
+
+
+@media (max-width: 1080px) {
+    .neoric-info-card {
+        background: #fff;
+        width: 335px;
+        padding: 25px 15px;
+        margin-bottom: 35px;
+        box-shadow: 0px 3px 20px #00000029;
+        border: 1px solid #D5D5D5;
+        border-radius: 5px;
+    }
+
+    .neoric-info-card__title {
+        font-size: var(--title-font-size-mobile, 20px); /* Mobile Font über Variable */
+    }
+
+    .neoric-info-card__subtitle { 
+        font-size: var(--subtitle-font-size-mobile, 16px); 
+    }
+
+    .neoric-info-card__price-old { 
+        font-size: var(--price-old-font-size-mobile, 16px); 
+    }
+
+    .neoric-info-card__price-new { 
+        font-size: var(--price-new-font-size-mobile, 16px); 
+    }
+
+    .neoric-info-card__tax { 
+        font-size: var(--tax-font-size-mobile, 9px); 
+    }
+
+    .neoric-info-card__stock { 
+        font-size: var(--stock-font-size-mobile, 14px); 
+    }
+
+    .neoric-button { 
+        font-size: var(--button-font-size-mobile, 16px); 
+    }
 }

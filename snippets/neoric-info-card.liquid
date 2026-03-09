@@ -1,50 +1,98 @@
 {{ 'neoric-info-card.css' | asset_url | stylesheet_tag }}
 
 <div class="neoric-info-card">
+	<h1 class="neoric-info-card__title">
+		{{ product.title | strip_html }}
+	</h1>
+	<p class="neoric-info-card__subtitle">
+		{{ product.description | strip_html }}
+	</p>
 
-  <h1 class="neoric-info-card__title">
-    {{ product.title }}
-  </h1>
+	<div class="neoric-info-card__price">
+		{% if product.compare_at_price > product.price %}
+			<span class="neoric-info-card__price-old">
+				{{ product.compare_at_price | money_without_currency | strip_html }}€
+			</span>
+		{% endif %}
 
-  <p class="neoric-info-card__subtitle">
-    Apple Watch Armband
-  </p>
+		<div>
+			<span class="neoric-info-card__price-new">
+				{{ product.price | money_without_currency | strip_html }}€
+			</span>
 
-  <div class="neoric-info-card__price">
+			<span class="neoric-info-card__tax">
+				{{ 'product.tax_included' | t | strip_html }}
+			</span>
+		</div>
+	</div>
 
-    {% if product.compare_at_price > product.price %}
-      <span class="neoric-info-card__price-old">
-        {{ product.compare_at_price | money_without_currency  }}€
-      </span>
-    {% endif %}
+	<div class="neoric-info-card__stock">
+		<span class="neoric-info-card__dot"></span>
+		{{ 'product.availability' | t | strip_html }}
+	</div>
 
-    <div>
-      <span class="neoric-info-card__price-new">
-        {{ product.price | money_without_currency  }}€
-      </span>
-
-      <span class="neoric-info-card__tax">
-        inkl. MwSt.
-      </span>
-  </div>
-
-  </div>
-
-  <div class="neoric-info-card__stock">
-    <span class="neoric-info-card__dot"></span>
-    Auf Lager, in 2-3 Tagen bei dir
-  </div>
-
-  <form method="post" action={{ routes.cart_add_url }}>
-    <input
-      type="hidden"
-      name="id"
-      value="{{ product.selected_or_first_available_variant.id }}"
-    >
-
-    <button type="submit" class="neoric-button">
-      In den Einkaufswagen
-    </button>
-  </form>
-
+	<form 
+		method="post" 
+		action={{ routes.cart_add_url }}
+	>
+		<input
+			type="hidden"
+			name="id"
+			value="{{ product.selected_or_first_available_variant.id }}"
+		>
+		<button 
+			type="submit" 
+			class="neoric-button"
+		>
+			{{ 'product.add_to_cart' | t }}
+		</button>
+	</form>
 </div>
+
+<style>
+    #shopify-section-{{ section.id }} .neoric-info-card {
+        --title-color: {{ section.settings.title_color }};
+        --title-font-size: {{ section.settings.title_font_size_desktop }}px;
+        --title-font-family: {{ section.settings.title_font_family }};
+        --title-font-weight: {{ section.settings.title_font_weight }};
+
+        --title-font-size-mobile: {{ section.settings.title_font_size_mobile }}px;
+
+        --subtitle-color: {{ section.settings.subtitle_color }};
+        --subtitle-font-size: {{ section.settings.subtitle_font_size_desktop }}px;
+        --subtitle-font-family: {{ section.settings.subtitle_font_family }};
+        --subtitle-font-weight: {{ section.settings.subtitle_font_weight }};
+        --subtitle-font-size-mobile: {{ section.settings.subtitle_font_size_mobile }}px;
+
+        --price-old-color: {{ section.settings.price_old_color }};
+        --price-old-font-size: {{ section.settings.price_old_font_size_desktop }}px;
+        --price-old-font-family: {{ section.settings.price_old_font_family }};
+        --price-old-font-weight: {{ section.settings.price_old_font_weight }};
+        --price-old-font-size-mobile: {{ section.settings.price_old_font_size_mobile }}px;
+
+        --price-new-color: {{ section.settings.price_new_color }};
+        --price-new-font-size: {{ section.settings.price_new_font_size_desktop }}px;
+        --price-new-font-family: {{ section.settings.price_new_font_family }};
+        --price-new-font-weight: {{ section.settings.price_new_font_weight }};
+        --price-new-font-size-mobile: {{ section.settings.price_new_font_size_mobile }}px;
+
+        --tax-color: {{ section.settings.tax_color }};
+        --tax-font-size: {{ section.settings.tax_font_size_desktop }}px;
+        --tax-font-family: {{ section.settings.tax_font_family }};
+        --tax-font-weight: {{ section.settings.tax_font_weight }};
+        --tax-font-size-mobile: {{ section.settings.tax_font_size_mobile }}px;
+
+        --stock-color: {{ section.settings.stock_color }};
+        --stock-font-size: {{ section.settings.stock_font_size_desktop }}px;
+        --stock-font-family: {{ section.settings.stock_font_family }};
+        --stock-font-weight: {{ section.settings.stock_font_weight }};
+        --stock-font-size-mobile: {{ section.settings.stock_font_size_mobile }}px;
+
+        --button-bg: {{ section.settings.button_bg }};
+        --button-color: {{ section.settings.button_color }};
+        --button-font-size: {{ section.settings.button_font_size_desktop }}px;
+        --button-font-family: {{ section.settings.button_font_family }};
+        --button-font-weight: {{ section.settings.button_font_weight }};
+        --button-font-size-mobile: {{ section.settings.button_font_size_mobile }}px;
+    }
+</style>

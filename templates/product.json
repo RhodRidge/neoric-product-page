@@ -1,0 +1,11 @@
+{
+	"sections": {
+		"main": {
+		"type": "neoric-product",
+		"settings": {}
+		}
+	},
+	"order": [
+		"main"
+	]
+}

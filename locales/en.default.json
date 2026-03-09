@@ -1,0 +1,22 @@
+{
+	"product": {
+		"tax_included": "Tax included",
+		"availability": "In stock, delivered in 2-3 days",
+		"add_to_cart": "Add to cart"
+	},
+	"features": {
+		"quality_badge": "100% Quality",
+		"quality_description": "Thanks to soft silicone"
+	},
+	"cart": {
+		"title": "Cart",
+		"empty": "Your cart is currently empty.",
+		"continue_shopping": "Continue shopping",
+		"subtotal": "Subtotal:",
+		"total": "Total",
+		"remove": "Remove",
+		"checkout": "Checkout",
+		"update": "Update cart",
+		"close": "Schließen"
+	}
+}

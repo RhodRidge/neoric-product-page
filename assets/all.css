@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+body {
+    margin: unset;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.neoric-product, footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    margin-bottom: 60px;
+}
+
+.neoric-product__container {
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.neoric-product {
+    margin: 60px 0;
+}
+
+@media (max-width: 1080px) {
+    .neoric-product {
+        margin: 0;
+    }
+
+    .neoric-product__container {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

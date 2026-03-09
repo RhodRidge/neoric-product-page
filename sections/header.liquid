@@ -1,28 +1,19 @@
-{% schema %}
-{
-  "name": "Neoric Header",
-  "settings": [],
-  "presets": [{ "name": "Neoric Header" }]
-}
-{% endschema %}
+{{ 'header.css' | asset_url | stylesheet_tag }}
 
 <header class="neoric-header">
-  <div class="desktop-header">
-    <img src="{{ 'header-desktop.png' | file_img_url: 'master' }}" width="100%" height="auto" alt="Header Desktop">
-  </div>
-  <div class="mobile-header">
-    <img src="{{ 'header-mobile.png' | file_img_url: 'master' }}" width="100%" height="auto" alt="Header Desktop">
-  </div>
+	<picture class="neoric-header__image">
+		{% if section.settings.hero_mobile != blank %}
+		<source media="(max-width: 768px)" srcset="{{ section.settings.hero_mobile | image_url: width: 900 }}">
+		{% endif %}
+
+		{% if section.settings.hero_desktop != blank %}
+		<img
+			src="{{ section.settings.hero_desktop | image_url: width: 2000 }}"
+			alt="{{ section.settings.hero_alt }}"
+			width="2000"
+			height="auto"
+			loading="eager"
+			fetchpriority="high">
+		{% endif %}
+	</picture>
 </header>
-
-<style>
-  .neoric-header { width: 100%; display: block; }
-  .neoric-header img { width: 100%; height: auto; display: block; }
-
-  .mobile-header { display: none; }
-
-  @media (max-width: 768px) {
-    .desktop-header { display: none; }
-    .mobile-header { display: block; }
-  }
-</style>

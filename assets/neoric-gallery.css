@@ -1,67 +1,95 @@
-.neoric-gallery {
-    display: flex;
-    align-items: center;
+.neoric-gallery { 
+    display: flex; 
+    align-items: center; 
+} 
+
+.neoric-gallery__thumbs { 
+    display: flex; 
+    margin-right: 12px; 
+    margin-bottom: 40px;
+    flex-direction: column; 
+    max-height: 480px; 
+    gap: 12px; 
+} 
+
+.neoric-gallery__thumb { 
+    background: none; 
+    border: none; 
 }
 
-.neoric-gallery__thumbs {
-    display: flex;
-    margin-right: 12px;
+.neoric-gallery__thumb img { 
+    border-radius: 3px; 
+    cursor: pointer; 
+} 
+
+.neoric-gallery__main { 
+    display: flex; 
+    align-items: center;
     flex-direction: column;
-    max-height: 480px;
-    gap: 12px;
 }
 
-.neoric-gallery__thumb {
-    background: none;
-    border: none;
+.neoric-gallery__main img { 
+    width: 100%; 
+    border-radius: 5px; 
 }
 
-.neoric-gallery__thumb img {
-    border-radius: 3px;
-    cursor: pointer;
+.neoric-gallery__slide.is-active { 
+    display: flex; 
+    width: 480px 
+} 
+
+.neoric-gallery__slide { 
+    display: none; 
+} 
+
+.neoric-gallery__dots { 
+    display: none; 
+} 
+
+.dot { 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    background: #f8f8f8; 
+} 
+
+.dot.active { 
+    background: #e5e5e5; 
+    box-shadow: inset 0px 3px 6px #00000029; 
 }
 
-.neoric-gallery__main {
+.neoric-gallery__arrows {
+
     display: flex;
-    align-items: center;
-}
-
-.neoric-gallery__main img {
-    width: 100%;
-    border-radius: 5px;
-    opacity: 1;
-}
-
-.neoric-gallery__slide {
-    display: none;
-}
-
-.neoric-gallery__slide.is-active {
-    display: flex;
-    width: 480px
-}
-
-.neoric-gallery__dots {
-    display: none;
     justify-content: center;
-    gap: 6px;
+    gap: 12px;
+
     margin-top: 10px;
+
 }
 
-.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #d3d3d3;
+.neoric-gallery__arrow {
+
+    border: none;
+    background: none;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    color: #999;
+
 }
 
-.dot.active {
-    background: #555;
+.neoric-gallery__arrow:hover {
+    color: #333;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
     .neoric-gallery {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
     }
 
     .neoric-gallery__thumbs {
@@ -70,35 +98,48 @@
 
     .neoric-gallery__dots{
         display: flex;
+        justify-content: center;
+        gap: 6px;
     }
 
-    .neoric-gallery__main{
-        display:flex;
-        flex-direction: column;
-        overflow-x: auto;
-        gap: 16px;
-        padding: 0 40px;
-        scroll-snap-type:x mandatory;
-        -webkit-overflow-scrolling:touch;
+    .neoric-gallery__main {
+        display: flex;
+        flex-direction: row;
+        gap: 7px;
+        scrollbar-width: none;
+        border-radius: 5px;
+        width: 500px;
+        overflow: hidden;
     }
 
-    .neoric-gallery__main::-webkit-scrollbar {
-        width: 350px
+    .neoric-gallery__track {
+        display: flex;
+        gap: 7px;
+        transition: transform .35s ease;
     }
 
-    .neoric-gallery__slide.is-active {
+    .neoric-gallery__slide, .is-active {
         display: block;
     }
 
     .neoric-gallery__slide {
         scroll-snap-align: center;
-        border-radius: 12px;
-        overflow: hidden;
+        border-radius: 5px;
+        width: 350px;
+        flex-shrink: 0;
+    }
+
+        .neoric-gallery__slide.is-active {
+        width: 350px;
     }
 
     .neoric-gallery__slide img {
-        width: 100%;
+        width: 350px;
         height: auto;
         display: block;
+    }
+
+    .neoric-gallery__arrows{
+        display:none;
     }
 }

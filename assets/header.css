@@ -1,0 +1,15 @@
+.neoric-header {
+    width: 100%;
+    display: block;
+}
+
+.neoric-header__image {
+    display: block;
+    width: 100%;
+}
+
+.neoric-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

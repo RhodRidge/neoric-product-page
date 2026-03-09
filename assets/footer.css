@@ -1,14 +1,8 @@
-.neoric-product__badges {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
 .neoric-trust-badges {
+    width: 1120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .neoric-trust-badge {
@@ -45,10 +39,10 @@
     color: #383838;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
     .neoric-trust-badges {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
     }
 
     .neoric-trust-badge img {
